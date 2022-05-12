@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { ABI, NFT_CONTRACT_ADDRESS } from "../constants";
 
 export default function Home() {
   return (
