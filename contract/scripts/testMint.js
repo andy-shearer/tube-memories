@@ -7,6 +7,19 @@ async function main() {
   await deployed.deployed();
 
   console.log("Tube Memories contract deployed to:", deployed.address);
+
+  let tx = await deployed.mint(
+    "Paddington",
+    "Brixton",
+    {
+      value: ethers.utils.parseEther("0.05"),
+    }
+  );
+
+  tx = await deployed.tokenURI(1);
+  console.log("Newly minted token URI", tx);
+  tx = await deployed.journeys(1);
+  console.log("Token 1 journey:", tx);
 }
 
 main()
