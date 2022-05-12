@@ -7,8 +7,7 @@ import "@openzeppelin/contracts/utils/Base64.sol";
 import "hardhat/console.sol";
 
 contract TubeMemories is ERC721URIStorage, Ownable {
-    string private baseURI;
-    uint256 private tokenCount;
+    uint256 public tokenCount;
     bool private paused = false;
     uint256 price = 5 * 10**15; // Each mint will cost 0.05 ETH
     mapping (uint256 => Journey) public journeys;
@@ -25,17 +24,12 @@ contract TubeMemories is ERC721URIStorage, Ownable {
         _;
     }
 
-    constructor(string memory _base) ERC721("Tube Memories", "TuMem") {
-        baseURI = _base;
+    constructor() ERC721("Tube Memories", "TuMem") {
         tokenCount = 0;
     }
 
     function pause(bool _state) public onlyOwner {
         paused = _state;
-    }
-
-    function _baseURI() internal view override returns (string memory) {
-        return baseURI;
     }
 
     function mint(string memory _from, string memory _to, string memory _descr) public payable onlyWhenNotPaused returns (uint256 tokenId) {

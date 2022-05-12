@@ -12,21 +12,7 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
 
 .title a {
   color: #0070f3;
@@ -50,27 +36,21 @@
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.button {
+    border: none;
+    border-radius: 5px;
+    margin-top: 40px;
+    padding: 15px;
+    width: 150px;
+    font-size: 18px;
+    background: #4D5B9E;
+    color: white;
+    letter-spacing: 1px;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+.button:hover {
+    box-shadow: 0px 0px 10px #4D839E;
+    cursor: pointer;
 }
 
 .card {
@@ -103,9 +83,78 @@
   line-height: 1.5;
 }
 
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #7f7f7f;
+  border-radius: 15px;
+  padding: 10px 10px;
+  position: fixed;
+  top: 50%;
+  background: white;
+  min-width: 250px;
+  min-height: 100px;
+}
+
+.loadingItem {
+  align-self: center;
+}
+
+.loadingItem img {
+  max-width: 75px;
+  max-height: 75px;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.textHeading {
+  font-size: 1.75rem;
+  text-align: center;
+  color: #4D5B9E;
 }
 
 @media (max-width: 600px) {

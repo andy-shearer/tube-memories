@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const tuMemContract = await hre.ethers.getContractFactory("TubeMemories");
-  const deployed = await tuMemContract.deploy("https://devbears.herokuapp.com/api/");
+  const deployed = await tuMemContract.deploy();
 
   await deployed.deployed();
 

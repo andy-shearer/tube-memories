@@ -1,13 +1,7 @@
-export const NFT_CONTRACT_ADDRESS = "0x9508b9400A8580810932d7d9469678AC1451296A";
-export const ABI = [
+export const CONTRACT_ADDRESS = "0x8057f7c2bc1A2b71032771B1D2D15f8792353262";
+export const CONTRACT_ABI = [
                                 {
-                                  "inputs": [
-                                    {
-                                      "internalType": "string",
-                                      "name": "_base",
-                                      "type": "string"
-                                    }
-                                  ],
+                                  "inputs": [],
                                   "stateMutability": "nonpayable",
                                   "type": "constructor"
                                 },
@@ -442,6 +436,19 @@ export const ABI = [
                                       "internalType": "string",
                                       "name": "",
                                       "type": "string"
+                                    }
+                                  ],
+                                  "stateMutability": "view",
+                                  "type": "function"
+                                },
+                                {
+                                  "inputs": [],
+                                  "name": "tokenCount",
+                                  "outputs": [
+                                    {
+                                      "internalType": "uint256",
+                                      "name": "",
+                                      "type": "uint256"
                                     }
                                   ],
                                   "stateMutability": "view",
