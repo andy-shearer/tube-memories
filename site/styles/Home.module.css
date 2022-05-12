@@ -94,6 +94,10 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
+.contentDivider {
+  margin-bottom: 50px;
+}
+
 .description {
   margin: 4rem 0;
   line-height: 1.5;
@@ -165,6 +169,7 @@
   font-size: 1.75rem;
   text-align: center;
   color: #4D5B9E;
+  margin-bottom: 0px;
 }
 
 .textInput {

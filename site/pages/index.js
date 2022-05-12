@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
+import { stations, stationNames } from "../../res/stations";
 import { Contract, providers, utils } from "ethers";
 import React, { useEffect, useRef, useState } from "react";
 import Select from 'react-select'
@@ -15,8 +16,8 @@ export default function Home() {
   const web3ModalRef = useRef();
   const [formData, setFormData] = useState(
       {
-          source: "1",
-          destination: "1",
+          source: "",
+          destination: "",
           description: ""
       }
   )
@@ -122,6 +123,11 @@ export default function Home() {
     if(minted) {
       window.alert("Minted!");
       getNumJourneysMinted();
+      setFormData({
+          source: "",
+          destination: "",
+          description: ""
+      });
     }
   }
 
@@ -141,8 +147,7 @@ export default function Home() {
   }
 
   const getStations = () => {
-    const stations = ["Paddington", "King's Cross St. Pancras", "Wimbledon"];
-    return stations.map(station => (
+    return stationNames.map(station => (
       {
         "value" : station,
         "label" : station
@@ -168,11 +173,15 @@ export default function Home() {
           View the collection on OpenSea! (TODO)
         </a>
 
+        <section className={styles.contentDivider}/>
+
         <section>
           <h2 className={styles.textHeading}>Create your Tube Journey 👇</h2>
           <p className={styles.text}>Journeys minted so far: {journeysMinted}</p>
 
           <Select
+            id="sourceSelector"
+            instanceId="sourceSelector"
             options={getStations()}
             onChange={(event) => handleChange("source", event)}
             placeholder="Please select the source station"
@@ -180,12 +189,15 @@ export default function Home() {
           />
 
           <Select
+              id="destSelector"
+              instanceId="destSelector"
              options={getStations()}
              onChange={(event) => handleChange("destination", event)}
              placeholder="Please select the destination station"
           />
 
           <input
+            id="journeyDescrInput"
             type="text"
             placeholder="What does this journey mean to you?"
             onChange={(event) => handleChange("description", event.target)}
