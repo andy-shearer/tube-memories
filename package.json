@@ -1,0 +1,22 @@
+{
+  "name": "tube-memories",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andy-shearer/tube-memories.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andy-shearer/tube-memories/issues"
+  },
+  "homepage": "https://github.com/andy-shearer/tube-memories#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.4"
+  }
+}
