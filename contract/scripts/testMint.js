@@ -11,8 +11,9 @@ async function main() {
   let tx = await deployed.mint(
     "Paddington",
     "Brixton",
+    "Route to O2 Brixton to see Foals on 09/05/22",
     {
-      value: ethers.utils.parseEther("0.05"),
+      value: ethers.utils.parseEther("0.05")
     }
   );
 
@@ -20,6 +21,11 @@ async function main() {
   console.log("Newly minted token URI", tx);
   tx = await deployed.journeys(1);
   console.log("Token 1 journey:", tx);
+
+  tx = await deployed.updateDescr("This is my updated description", 1);
+  tx = await deployed.journeys(1);
+  console.log("Token 1 updated description:", tx);
+
 }
 
 main()
