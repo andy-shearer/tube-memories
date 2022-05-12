@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
 import { Contract, providers, utils } from "ethers";
 import React, { useEffect, useRef, useState } from "react";
+import Select from 'react-select'
 import Web3Modal from "web3modal";
 
 
@@ -20,14 +21,13 @@ export default function Home() {
       }
   )
 
-  const handleChange = (event) => {
-      const {name, value} = event.target;
-      setFormData(prevFormData => {
-          return {
-              ...prevFormData,
-              [name]: value
-          }
-      });
+  const handleChange = (name, event) => {
+    setFormData(prevFormData => {
+        return {
+            ...prevFormData,
+            [name]: event.value
+        }
+    });
   }
 
   useEffect(() => {
@@ -42,10 +42,10 @@ export default function Home() {
     connectWallet();
   }, [walletConnected]);
 
-    useEffect(() => {
-      // Run the following every time the page is re-rendered
-      getNumJourneysMinted();
-    }, []);
+  useEffect(() => {
+    // Run the following every time the page is re-rendered
+    getNumJourneysMinted();
+  }, []);
 
   /**
    * Attempt to obtain the provider, which will prompt wallet connection when used for the first time
@@ -140,6 +140,16 @@ export default function Home() {
     );
   }
 
+  const getStations = () => {
+    const stations = ["Paddington", "King's Cross St. Pancras", "Wimbledon"];
+    return stations.map(station => (
+      {
+        "value" : station,
+        "label" : station
+      }
+    ));
+  }
+
   return (
 <div className={styles.container}>
       <Head>
@@ -161,6 +171,27 @@ export default function Home() {
         <section>
           <h2 className={styles.textHeading}>Create your Tube Journey 👇</h2>
           <p className={styles.text}>Journeys minted so far: {journeysMinted}</p>
+
+          <Select
+            options={getStations()}
+            onChange={(event) => handleChange("source", event)}
+            placeholder="Please select the source station"
+            className={styles.stationSelector}
+          />
+
+          <Select
+             options={getStations()}
+             onChange={(event) => handleChange("destination", event)}
+             placeholder="Please select the destination station"
+          />
+
+          <input
+            type="text"
+            placeholder="What does this journey mean to you?"
+            onChange={(event) => handleChange("description", event.target)}
+            className={styles.textInput}
+          />
+
           {loading && renderLoading()}
           {renderMintButton()}
         </section>

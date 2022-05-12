@@ -46,6 +46,8 @@
     background: #4D5B9E;
     color: white;
     letter-spacing: 1px;
+    display: grid;
+    margin: auto;
 }
 
 .button:hover {
@@ -151,10 +153,32 @@
   margin-left: 0.5rem;
 }
 
+.stationSelector {
+  margin-bottom: 20px;
+}
+
+.text {
+  text-align: center;
+}
+
 .textHeading {
   font-size: 1.75rem;
   text-align: center;
   color: #4D5B9E;
+}
+
+.textInput {
+  border-style: solid;
+  border-color: #CCCCCC;
+  border-radius: 4px;
+  border-width: 1px;
+  min-height: 38px;
+  min-width: 400px;
+  padding: 10px;
+  margin: 20px 0px;
+  font-size: 1em;
+  font-weight: 450;
+  display: flex;
 }
 
 @media (max-width: 600px) {
